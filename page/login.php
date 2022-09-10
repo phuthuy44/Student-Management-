@@ -67,14 +67,31 @@ if(isset($_POST['login'])){
     $email=$_POST['email'];
     $password=$_POST['password'];
 
-    $sql="SELECT * FROM admin WHERE email='{$email}' AND password='{$password}'";
+    $sql="SELECT * FROM admin WHERE email='{$email}'";
     $query=mysqli_query($con,$sql);
     $row=mysqli_num_rows($query);
+    /*
+    $password_fetch=$row['password'];
+    $password_decode = password_verify($password,$password_fetch);
+
+    if($password_decode){
+        echo "
+        <script>window.open('./../page/login.php?success=Loggedin successfully','_self');</script>
+        ";
+    }
+    else{
+        echo "
+        <script>
+        alert('Email or Password no match!');
+        window.open('./../page/login.php?error=Email or password is incorrect','_self');</script>
+        ";
+    }
+    */
     if($row<1){
         ?>
         <script>
             alert('Email or Password no match!');
-            window.open('./../page/login.php','_self');
+            window.open('./../page/login.php?error=Email or password is incorrect','_self');
         </script>
         <?php
     }else{
@@ -86,8 +103,7 @@ if(isset($_POST['login'])){
        // echo "id=".$id;
        
        $_SESSION['id']=$id;
-        header('Location:../../../../Student-Management-/admin/dashboard.php');
+        header('Location:../../../../Student-Management-/admin/dashboard.php?success=Loggedin successfully');
     }
-
 }
 ?>

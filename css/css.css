@@ -1,56 +1,35 @@
-body{
-    background-color: #e6e695;
-}
-.admintitle{
-    background-color: rgb(11, 11, 73);
-    color:white;
-    margin-left:50px;
-    margin-right:50px;
-    height:140px;
-    position: relative;
-}
-.admintitle h1{
-    text-align: center;
-    line-height: 140px;
-
-}
-.admintitle h4{
-    float:right;
+*{
     margin:0;
-    position: absolute;
-    top:5px;
-    right:5px;
-    height:18%;
-    border: 1px solid white;
-    background:yellow;
-    border-radius: 5px;
-    width:70px;
-    
+    padding:0;
+    box-sizing: border-box;
+    font-family:tahoma ;
 }
-.admintitle h4 a{
-    text-decoration: none;
-    color:black;
-    font-size: 20px;
-    z-index:1;
-    text-align: center;
-    margin-left:5px;
-   
-}.admintitle h4:hover {
-    background-color: white;
+nav{
+    width:100%;
+    min-width: 0;
 }
-.dashboard{
-    background-color: rgba(21, 129, 224, 0.821);
-    margin-left:50px;
-    margin-right:50px;
-    height:140px;
-    font-size: 25px;
+.sidebar{
+    margin:0;
+    border:6px solid black;
+    height:1000px;
+    width:16rem;
+    font-size:1.1rem;
+    transition: all 0.5s ease;
 }
-table{
-    width:50%;
-    align-items: center;
-    
+.sidebar a:hover{
+   padding-left: 5px;
+    transition: all 0.3s ease;
+    background-color: #dc3545;
+    color: white;
 }
-table tr td a{
-    text-decoration: none;
-    color:white;
+.sidebar-heading{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.sidebar i{
+   color: white;
+   background: #dc3545 ;
+   border-radius: 50%;
+   padding:3px;
+   margin-right: 4px;
 }

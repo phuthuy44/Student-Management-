@@ -11,39 +11,24 @@
 include_once "header.php";
 
 ?>
-<div class="admintitle">
-<h4><a href="../../Student-Management-/page/logout.php">Logout</a></h4>
-<h1>Welcome to Admin Dashboard</h1>
 
-</div>
-<div class="dashboard" >
-    <table border="1">
-        <tr>
-            <td>
-                1.
-            </td>
-            <td>
-                <a href="./addstudent.php">Insert Student</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                2.
-            </td>
-            <td>
-                <a href="./updatestudent.php">Update Student</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                3.
-            </td>
-            <td>
-                <a href="./deletestudent.php">Delete Student</a>
-            </td>
-        </tr>
-    </table>
-</div>
+<body>
+    <div class="d-flex" id="wrap">
+        <div class="sidebar bg-light border-light border">
+            <div class="sidebar-heading">
+                <p class="text-center bg-danger p-3">Hello,Admin!</p>
+            </div>
+            <ul class="listgroup list-group-flush">
+                <a href="" class="list-group-item list-group-item-action"><i class="fa fa-dashboard"></i>Dashboard</a>
+                <a href="" class="list-group-item list-group-item-action"><i class="fa fa-user"></i>Add Student</a>
+                <a href="" class="list-group-item list-group-item-action"><i class="fa fa-eye"></i>View Student</a>
+                <a href="" class="list-group-item list-group-item-action"><i class="fa fa-pencil"></i>Edit Student</a>
+                <a href="" class="list-group-item list-group-item-action"><i class="fa fa-sign-out"></i>Logout</a>
+
+            </ul>
+        </div>
+    </div>
+
 
 </body>
 </html>
