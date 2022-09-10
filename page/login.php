@@ -64,16 +64,16 @@ if(isset($_SESSION['id'])){
 <?php
 include_once "./../../Student-Management-/database/dbcon.php";
 if(isset($_POST['login'])){
-    $username=$_POST['username'];
+    $email=$_POST['email'];
     $password=$_POST['password'];
 
-    $sql="SELECT * FROM admin WHERE username='{$username}' AND password='{$password}'";
+    $sql="SELECT * FROM admin WHERE email='{$email}' AND password='{$password}'";
     $query=mysqli_query($con,$sql);
     $row=mysqli_num_rows($query);
     if($row<1){
         ?>
         <script>
-            alert('Username or Password no match!');
+            alert('Email or Password no match!');
             window.open('./../page/login.php','_self');
         </script>
         <?php

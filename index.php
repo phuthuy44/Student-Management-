@@ -1,9 +1,4 @@
-<?php
-session_start();
-if(isset($_SESSION['id'])){
-    header("Location:../../../../Student-Management-/page/login.php");
-}
-?>
+
 <!Doctype html>
 <html>
     <head>
@@ -24,6 +19,49 @@ if(isset($_SESSION['id'])){
 
     </head>
     <body>
+    <?php
+include_once "../Student-Management-/database/dbcon.php";
+$email_error=$password_error=$error=" ";
+if(isset($_POST['submit'])){
+    $fullname=$_POST['fullname'];
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $password2=$_POST['password2'];
+
+    $pass=password_hash($password,PASSWORD_BCRYPT);
+    $pass2=password_hash($password2,PASSWORD_BCRYPT);
+
+    if(!empty($fullname) && !empty($email) && !empty($password) && !empty($password2)){
+        $query="SELECT * FROM admin WHERE email='{$email}'";
+        $run= mysqli_query($con,$query);
+        $row=mysqli_num_rows($run);
+        if(filter_var($email,FILTER_VALIDATE_EMAIL)){
+            if($row>0){
+                $email_error="Email is already exists. Please try with another email!";
+            }else if($password !== $password2){
+                $password_error="Your password do not match!";
+            }else{
+                $sql="INSERT INTO admin (fullname,email,password)values('{$fullname}','{$email}','{$pass}')";
+                $run=mysqli_query($con,$sql);
+                if($run){
+                    ?>
+                    <script>
+                        alert('Register successfully!Now, Lets login!');
+                        window.open('../Student-Management-/page/login.php','_self');
+                    </script>
+                    <?php
+                }else{
+                    ?>
+                    <script>alert('Error!Wait 10 miniutes to register again!')</script>
+                    <?php
+                }
+            }
+        }
+    }else{
+        $error="All input field are required!";
+    }
+}
+?>
     <section>
         <h1 class="text-center text-danger pt-5 pb-4 font-weight-bold">Student Management System</h1>
         <div class="container shadow-sm">
@@ -37,20 +75,23 @@ if(isset($_SESSION['id'])){
                     <form action="" method="post">
                         <div class="form-group">
                             <label for="" class="text-danger font-weight-bold">Full name</label>
-                            <input type="text" name="fullname" placeholder="Enter your full name" class="form-control border">
+                            <input type="text" name="fullname" placeholder="Enter your full name" class="form-control border" required>
                         </div>
                         <div class="form-group">
                             <label for="" class="text-danger font-weight-bold">Email</label>
-                            <input type="email" name="email" placeholder="Enter your email" class="form-control border">
+                            <input type="email" name="email" placeholder="Enter your email" class="form-control border"required>
+                            <span class="text-danger font-weight-bold"><?php echo $email_error ?></span>
                         </div>
                         <div class="form-group">
                             <label for="" class="text-danger font-weight-bold">Password</label>
-                            <input type="password" name="password" placeholder="Enter your password" class="form-control border">
+                            <input type="password" name="password" placeholder="Enter your password" class="form-control border"required>
                         </div>
                         <div class="form-group">
                             <label for="" class="text-danger font-weight-bold">Confirm Password</label>
-                            <input type="password" name="password2" placeholder="Enter your confirm password" class="form-control border">
+                            <input type="password" name="password2" placeholder="Enter your confirm password" class="form-control border"required>
+                            <span class="text-danger font-weight-bold"><?php echo $password_error?></span>
                         </div>
+                        <span class="text-danger font-weight-bold"><?php echo $error;?></span>
                         <div class="d-flex align-items-center">
                         <input type="submit" name="submit" value="Register" class="btn btn-dark px-4 m-2">
                         <a href="../Student-Management-/page/login.php">
