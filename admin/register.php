@@ -94,8 +94,6 @@ include_once "header.php";
                         </div>
                         <div class="d-flex align-items-center">
                         <input type="submit" name="submit" value="Register" class="btn btn-dark px-4 m-2">
-                        <a href="../Student-Management-/page/login.php">
-                        <div class="btn btn-dark px-4 m-2">Login</div>
                         </div>
 
                         
@@ -104,6 +102,43 @@ include_once "header.php";
                     
                 </div>
             </div>
+            
+        </div>
+    </section>
+    <section class="main-form">
+        <div class="container bg-white rounded mt-5" id="formsetting">
+            <div class="row justify-content-center">
+                <div class="col-md-7 col-sm-5 col-3">
+                    <table class="table table-bordered table-hover">
+                        <thead class="bg-danger text-white text-center">
+                            <tr>
+                                <th style="width:10%">ID</th>
+                                <th style="width:30%">Full name</th>
+                                <th style="width:100%">Email</th>
+                            </tr>
+                        </thead>
+                        <?php
+                            $sql="SELECT * FROM admin";
+                            $run=mysqli_query($con,$sql);
+                            $i=1;
+                            while($row=mysqli_fetch_assoc($run)){
+
+                
+                        ?>
+                        <tbody class="text-dark text-center">
+                            <tr>
+                                <td><?php echo $i++ ;?></td>
+                                <td><?php echo $row['fullname'];?></td>
+                                <td><?php echo $row['email'];?></td>
+                                
+                            </tr>
+                        </tbody>
+                        <?php
+                        }?>
+                    </table>
+                </div>
+            </div>
+            <hr>
         </div>
     </section>
     </div>

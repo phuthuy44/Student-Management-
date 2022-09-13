@@ -45,7 +45,7 @@ if(isset($_POST['add'])){
                                     VALUES('{$fullname}','{$lastname}','{$email}','{$fathername}','{$birthdate}','{$phone}','{$gender}','{$district}','{$city}','{$state}','{$nation}','{$image}')";
                             $run2=mysqli_query($con,$sql2);
                             if($run2){
-                                $data=mysqli_fetch_assoc($query);
+                                $data=mysqli_fetch_assoc($run);
 
                                 $id=$data['id'];
 
