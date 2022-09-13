@@ -35,8 +35,6 @@ if(isset($_POST['submit'])){
                 }
             }
         }
-    }else{
-        $error="All input field are required!";
     }
 }
 ?>
@@ -56,6 +54,9 @@ include_once "header.php";
                 <a href="../../Student-Management-/admin/addstudent.php" class="list-group-item list-group-item-action"><i class="fa fa-user"></i>Add Student</a>
                 <a href="../../Student-Management-/admin/viewstudent.php" class="list-group-item list-group-item-action"><i class="fa fa-eye"></i>View Student</a>
                 <a href="../../Student-Management-/admin/updatestudent.php" class="list-group-item list-group-item-action"><i class="fa fa-pencil"></i>Edit Student</a>
+                <a href="../../Student-Management-/admin/addTeacher.php" class="list-group-item list-group-item-action"><i class="fa fa-user"></i>Add Teacher</a>
+                <a href="../../Student-Management-/admin/viewTeacher.php" class="list-group-item list-group-item-action"><i class="fa fa-eye"></i>View Teacher</a>
+                <a href="../../Student-Management-/admin/updateTeacher.php" class="list-group-item list-group-item-action"><i class="fa fa-pencil"></i>Edit Teacher</a>
                 <a href="../../Student-Management-/admin/updatestudent.php" class="list-group-item list-group-item-action"><i class="fa fa-check-circle"></i>Register User</a>
                 <a href="../../Student-Management-/page/logout.php" class="list-group-item list-group-item-action"><i class="fa fa-sign-out"></i>Logout</a>
 
@@ -65,7 +66,7 @@ include_once "header.php";
         <section class="main-form">
         <h2 class="text-center text-white .shadow-lg bg-danger p-3 font-weight-bold">Student Managerment System</h2>
         <div class="container bg-danger rounded dash mt-5" id="formsetting">
-            <h3 class="text-center text-white pb-4 pt-2 font-weight-bold">Welcome to dashboard</h3>
+            <h3 class="text-center text-white pb-4 pt-2 font-weight-bold">Register a account to be admin!</h3>
             <div class="row">
 
             <div class="col-md-7 col-sm-7 col-12">
