@@ -23,6 +23,7 @@ include_once "header.php";
                 <a href="../../Student-Management-/admin/addstudent.php" class="list-group-item list-group-item-action"><i class="fa fa-user"></i>Add Student</a>
                 <a href="../../Student-Management-/admin/viewstudent.php" class="list-group-item list-group-item-action"><i class="fa fa-eye"></i>View Student</a>
                 <a href="../../Student-Management-/admin/updatestudent.php" class="list-group-item list-group-item-action"><i class="fa fa-pencil"></i>Edit Student</a>
+                <a href="../../Student-Management-/admin/register.php" class="list-group-item list-group-item-action"><i class="fa fa-check-circle"></i>Register User</a>
                 <a href="../../Student-Management-/page/logout.php" class="list-group-item list-group-item-action"><i class="fa fa-sign-out"></i>Logout</a>
 
             </ul>
