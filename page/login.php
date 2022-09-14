@@ -67,7 +67,7 @@ if(isset($_POST['login'])){
     $email=$_POST['email'];
     $password=$_POST['password'];
 
-    $sql="SELECT * FROM admin WHERE email='{$email}'";
+    $sql="SELECT * FROM admin WHERE email='{$email}' AND password='{$password}'";
     $query=mysqli_query($con,$sql);
     $row=mysqli_num_rows($query);
     /*
