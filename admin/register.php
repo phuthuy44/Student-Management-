@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "../database/dbcon.php";
 $email_error=$password_error=$error=" ";
 if(isset($_POST['submit'])){
@@ -42,12 +43,18 @@ if(isset($_POST['submit'])){
 include_once "header.php";
 
 ?>
-<link rel="stylesheet" href="../css/css.css">
 <body>
+<?php
+    include_once "../database/dbcon.php";
+    $sql2=mysqli_query($con,"SELECT*FROM admin WHERE id='{$_SESSION['id']}'");
+    if(mysqli_num_rows($sql2)>0){
+        $row1=mysqli_fetch_assoc($sql2);
+    }
+    ?>
     <div class="d-flex" id="wrap">
         <div class="sidebar bg-light border-light border">
             <div class="sidebar-heading">
-                <p class="text-center bg-danger p-3">Hello,Admin!</p>
+                <p class="text-center bg-danger p-3">Hello,<span><?php echo $row1['fullname']?></span></p>
             </div>
             <ul class="listgroup list-group-flush">
                 <a href="../../Student-Management-/admin/dashboard.php" class="list-group-item list-group-item-action"><i class="fa fa-dashboard"></i>Dashboard</a>
@@ -115,21 +122,25 @@ include_once "header.php";
                                 <th style="width:10%">ID</th>
                                 <th style="width:30%">Full name</th>
                                 <th style="width:100%">Email</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
+                        <tbody class="text-dark">
                         <?php
-                            $sql="SELECT * FROM admin";
-                            $run=mysqli_query($con,$sql);
+                            $sqlUser="SELECT * FROM admin";
+                            $runUser=mysqli_query($con,$sqlUser);
                             $i=1;
-                            while($row=mysqli_fetch_assoc($run)){
+                            while($row=mysqli_fetch_assoc($runUser)){
 
                 
                         ?>
-                        <tbody class="text-dark text-center">
-                            <tr>
+                            <tr class="text-center">
                                 <td><?php echo $i++ ;?></td>
                                 <td><?php echo $row['fullname'];?></td>
                                 <td><?php echo $row['email'];?></td>
+                                <td>
+                                <a  style="color: red;text-decoration:none" href="deleteUser.php?Delete_id=<?php echo $row['id'];?>">Delete</a>
+                                </td>
                                 
                             </tr>
                         </tbody>

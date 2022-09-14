@@ -82,10 +82,17 @@ include_once "header.php";
 ?>
 
 <body>
+<?php
+    include_once "../database/dbcon.php";
+    $sql=mysqli_query($con,"SELECT*FROM admin WHERE id='{$_SESSION['id']}'");
+    if(mysqli_num_rows($sql)>0){
+        $row=mysqli_fetch_assoc($sql);
+    }
+    ?>
     <div class="d-flex" id="wrap">
         <div class="sidebar bg-light border-light border">
             <div class="sidebar-heading">
-                <p class="text-center bg-danger p-3">Hello,Admin!</p>
+                <p class="text-center bg-danger p-3">Hello,<span><?php echo $row['fullname']?></span></p>
             </div>
             <ul class="listgroup list-group-flush">
                 <a href="../../Student-Management-/admin/dashboard.php" class="list-group-item list-group-item-action"><i class="fa fa-dashboard"></i>Dashboard</a>
