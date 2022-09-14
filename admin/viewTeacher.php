@@ -7,6 +7,7 @@
     }
 include_once "../database/dbcon.php";
 ?>
+
 <?php
 include_once "header.php";
 
@@ -15,7 +16,7 @@ include_once "header.php";
 <body>
     
 <?php
-    include_once "../database/dbcon.php";
+    //include_once "../database/dbcon.php";
     $sql=mysqli_query($con,"SELECT*FROM admin WHERE id='{$_SESSION['id']}'");
     if(mysqli_num_rows($sql)>0){
         $row=mysqli_fetch_assoc($sql);
@@ -48,51 +49,41 @@ include_once "header.php";
                         <thead class="bg-danger text-white ">
                             <tr>
                                 <th>ID</th>
-                                <th>First name</th>
-                                <th>Last name</th>
-                                <th>father/Mother's name</th>
+                                <th>Full name</th>
                                 <th>Gender</th>
                                 <th>Email</th>
                                 <th>Birth of date</th>
                                 <th>Phone</th>
-                                <th>City</th>
-                                <th>District</th>
-                                <th>Sate</th>
-                                <th>Nationality</th>
+                                <th>Adress</th>
                                 <th>Photo</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <?php
-                            $sql="SELECT * FROM student";
-                            $run=mysqli_query($con,$sql);
+                            $sqlView="SELECT * FROM teacher";
+                            $runView=mysqli_query($con,$sqlView);
                             $i=1;
-                            while($row=mysqli_fetch_assoc($run)){
+                            while($rowView=mysqli_fetch_assoc($runView)){
 
                 
                         ?>
                         <tbody class="text-dark">
                             <tr>
                                 <td><?php echo $i++ ;?></td>
-                                <td><?php echo $row['fullname'];?></td>
-                                <td><?php echo $row['lastname'];?></td>
-                                <td><?php echo $row['parents_name'];?></td>
-                                <td><?php echo $row['gender'];?></td>
-                                <td><?php echo $row['email'];?></td>
-                                <td><?php echo $row['date'];?></td>
-                                <td><?php echo $row['phone'];?></td>
-                                <td><?php echo $row['city'];?></td>
-                                <td><?php echo $row['district'];?></td>
-                                <td><?php echo $row['state'];?></td>
-                                <td><?php echo $row['nation'];?></td>
-                                <td><a href="../Student_image/<?php echo $row['photo'];?>">
-                                    <img src="../Student_image/<?php echo $row['photo'];?>" alt="" width="50" height="50">    
+                                <td><?php echo $rowView['fullname_Teacher'];?></td>
+                                <td><?php echo $rowView['gender_Teacher'];?></td>
+                                <td><?php echo $rowView['email_Teacher'];?></td>
+                                <td><?php echo $rowView['date_Teacher'];?></td>
+                                <td><?php echo $rowView['phone_Teacher'];?></td>
+                                <td><?php echo $rowView['Adress_Teacher'];?></td>
+                                <td><a href="../Teacher_image/<?php echo $rowView['photo_Teacher'];?>">
+                                    <img src="../Teacher_image/<?php echo $rowView['photo_Teacher'];?>" alt="" width="50" height="50">    
                                 </a></td>
                                 <td>
-                                    <a style="color: red; text-decoration:none"href="updatestudent.php?edit_studentID=<?php echo $row['id'];?>" id="edit-btn">Edit
+                                    <a style="color: red; text-decoration:none"href="updateTeacher.php?edit_TeacherID=<?php echo $rowView['id'];?>">Edit
 
                                     </a> |
-                                    <a style="color: red; text-decoration:none" href="deletestudent.php?delete_studentID=<?php echo $row['id'];?>"> Delete
+                                    <a style="color: red; text-decoration:none" href="deleteTeacher.php?delete_TecherID=<?php echo $rowView['id'];?>"> Delete
 
                                     </a>
                                 </td>

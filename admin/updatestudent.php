@@ -26,7 +26,6 @@ include_once "header.php";
                 <a href="../../Student-Management-/admin/viewstudent.php" class="list-group-item list-group-item-action"><i class="fa fa-eye"></i>View Student</a>
                 <a href="../../Student-Management-/admin/addTeacher.php" class="list-group-item list-group-item-action"><i class="fa fa-user"></i>Add Teacher</a>
                 <a href="../../Student-Management-/admin/viewTeacher.php" class="list-group-item list-group-item-action"><i class="fa fa-eye"></i>View Teacher</a>
-                <a href="../../Student-Management-/admin/updateTeacher.php" class="list-group-item list-group-item-action"><i class="fa fa-pencil"></i>Edit Teacher</a>
                 <a href="../../Student-Management-/admin/register.php" class="list-group-item list-group-item-action"><i class="fa fa-check-circle"></i>Register User</a>
                 <a href="../../Student-Management-/page/logout.php" class="list-group-item list-group-item-action"><i class="fa fa-sign-out"></i>Logout</a>
 
@@ -116,7 +115,7 @@ include_once "header.php";
                     </div>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="inputGroupFile01"aria-describedby="inputGroupFileAddon01" name="image">
-                        <label for="inputGroupFile01" class="custom-file-label">Choose File</label>
+                        <label for="inputGroupFile01" class="custom-file-label"><?php echo $row['photo'];?></label>
                     </div>
                 </div>
                 </div>
