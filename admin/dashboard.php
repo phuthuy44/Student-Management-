@@ -22,7 +22,6 @@ include_once "header.php";
                 <a href="../../Student-Management-/admin/dashboard.php" class="list-group-item list-group-item-action"><i class="fa fa-dashboard"></i>Dashboard</a>
                 <a href="../../Student-Management-/admin/addstudent.php" class="list-group-item list-group-item-action"><i class="fa fa-user"></i>Add Student</a>
                 <a href="../../Student-Management-/admin/viewstudent.php" class="list-group-item list-group-item-action"><i class="fa fa-eye"></i>View Student</a>
-                <a href="../../Student-Management-/admin/updatestudent.php" class="list-group-item list-group-item-action"><i class="fa fa-pencil"></i>Edit Student</a>
                 <a href="../../Student-Management-/admin/addTeacher.php" class="list-group-item list-group-item-action"><i class="fa fa-user"></i>Add Teacher</a>
                 <a href="../../Student-Management-/admin/viewTeacher.php" class="list-group-item list-group-item-action"><i class="fa fa-eye"></i>View Teacher</a>
                 <a href="../../Student-Management-/admin/updateTeacher.php" class="list-group-item list-group-item-action"><i class="fa fa-pencil"></i>Edit Teacher</a>
@@ -43,12 +42,12 @@ include_once "header.php";
                 </a>
                 </div>
                 <div class="col-md-4 col-sm-4 col-12 m-auto icon">
-                    <a href="../../Student-Management-/admin/viewstudent" class="text-white text-center"><i class="fa fa-eye"></i>
+                    <a href="../../Student-Management-/admin/viewstudent.php" class="text-white text-center"><i class="fa fa-eye"></i>
                     <h3>View student</h3>
                 </a>
                 </div>
                 <div class="col-md-4 col-sm-4 col-12 m-auto icon">
-                    <a href="../../Student-Management-/admin/updatestudent.php" class="text-white text-center"><i class="fa fa-pencil"></i>
+                    <a href="#" class="text-white text-center"><i class="fa fa-pencil"></i>
                     <h3>Edit student</h3>
                 </a>
                 </div>

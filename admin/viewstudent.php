@@ -13,6 +13,7 @@ include_once "header.php";
 ?>
 
 <body>
+    
     <div class="d-flex" id="wrap">
         <div class="sidebar bg-light border-light border">
             <div class="sidebar-heading">
@@ -22,7 +23,6 @@ include_once "header.php";
                 <a href="../../Student-Management-/admin/dashboard.php" class="list-group-item list-group-item-action"><i class="fa fa-dashboard"></i>Dashboard</a>
                 <a href="../../Student-Management-/admin/addstudent.php" class="list-group-item list-group-item-action"><i class="fa fa-user"></i>Add Student</a>
                 <a href="../../Student-Management-/admin/viewstudent.php" class="list-group-item list-group-item-action"><i class="fa fa-eye"></i>View Student</a>
-                <a href="../../Student-Management-/admin/updatestudent.php" class="list-group-item list-group-item-action"><i class="fa fa-pencil"></i>Edit Student</a>
                 <a href="../../Student-Management-/admin/addTeacher.php" class="list-group-item list-group-item-action"><i class="fa fa-user"></i>Add Teacher</a>
                 <a href="../../Student-Management-/admin/viewTeacher.php" class="list-group-item list-group-item-action"><i class="fa fa-eye"></i>View Teacher</a>
                 <a href="../../Student-Management-/admin/updateTeacher.php" class="list-group-item list-group-item-action"><i class="fa fa-pencil"></i>Edit Teacher</a>
@@ -32,7 +32,7 @@ include_once "header.php";
             </ul>
         </div>
         <div class="main-body">
-        <section class="main-form">
+        <section class="main-form"> 
         <h2 class="text-center text-white .shadow-lg bg-danger p-3 font-weight-bold">Student Managerment System</h2>
         <div class="container bg-white rounded dash mt-5" id="formsetting">
             <h3 class="text-center text-dark pb-4 pt-2 font-weight-bold">View student detail</h3>
@@ -54,6 +54,7 @@ include_once "header.php";
                                 <th>Sate</th>
                                 <th>Nationality</th>
                                 <th>Photo</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <?php
@@ -78,9 +79,17 @@ include_once "header.php";
                                 <td><?php echo $row['district'];?></td>
                                 <td><?php echo $row['state'];?></td>
                                 <td><?php echo $row['nation'];?></td>
-                                <td><a href="../Student_image/<?php echo $row['photo']?>">
+                                <td><a href="../Student_image/<?php echo $row['photo'];?>">
                                     <img src="../Student_image/<?php echo $row['photo'];?>" alt="" width="50" height="50">    
                                 </a></td>
+                                <td>
+                                    <a style="color: red; text-decoration:none"href="updatestudent.php?edit_studentID=<?php echo $row['id'];?>" id="edit-btn">Edit
+
+                                    </a> |
+                                    <a style="color: red; text-decoration:none" href="deletestudent.php?delete_studentID=<?php echo $row['id'];?>"> Delete
+
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
                         <?php
@@ -92,8 +101,7 @@ include_once "header.php";
         </div>
     </section>
     </div>
-    </div>
-
-
+    
 </body>
+
 </html>
